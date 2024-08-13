@@ -1,12 +1,10 @@
-//배열 방식 타입 지정
+// 튜플 타입 지정 방식
 
-let age: number = 30;
-let isAdult: boolean = true;
-let a: number[] = [1, 2, 3];
-//제네릭을 사용해서 Array의 타입을 지정
-let a2: Array<number> = [1, 2, 3];
+//첫 번째 인자는 string, 두 번째 인자는 number
+let b: [string, number];
 
-let week1: string[] = ['mon', 'tue', 'wed'];
-let week2: Array<string> = ['mon', 'tue', 'wed'];
+b = ['z', 3];
+// b = [3, '3'];  //-> error
 
-// week1.push(3); //-> error 타입이 일치하지 않음
+b[0].toLowerCase();
+// b[1].toLowerCase();  //-> error: 숫자에는 대/소문자를 지정할 수 없다.

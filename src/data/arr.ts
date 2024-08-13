@@ -11,3 +11,6 @@ const element = {
   a: [1, 2, 3],
   a2: [1, 2, 3],
 }
+
+let week1: string[] = ['mon', 'tue', 'wed'];
+let week2: Array<string> = ['mon', 'tue', 'wed'];
