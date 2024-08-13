@@ -1,16 +1,30 @@
-//object and interface
+import { Add, isAdult } from "./utils/data.interface";
 
-import { user } from "./data/data";
+//일반 함수
 
-console.log(user.name);
+// function test(x, y): Add {
+//   return x + y;
+// } //-> 잘못된 일반 함수 선언 방법
 
-user.age = 10;
+function test(x: number, y: number): number {
+  return x + y;
+}
 
-// user.gender = 'male';  //-> error : user라는 데이터에는 해당 객체, interface가 존재하지 않는다. 하지만 이를 옵셔널로 처리 하면 아래와 같다.
+const addTest: Add = test;
+//왜 function에 인터페이스를 지정 할 수 없는가?
+//TypeScript에서 함수 타입 인터페이스를 직접 함수 선언에 기입하는 것은 불가능
 
-user.gender = 'male';
-console.log(user.gender); //data 객체에는 gender가 없지만 interface에서 '옵셔널'로 처리했기 때문에 문제없이 사용할 수 있다.
 
-// user.birthYear = 1999; //-> error : readonly속성이 부여되어 있기 떄문에 객체 수정이 불가능 하다.
+//익명 함수
+const add: Add = function (x, y) {
+  return x + y;
+}
 
-console.log(user[1]); //인덱스 시그니처 방식
+console.log(add(10, 20));
+
+//화살표 함수
+const isAdult: isAdult = (age) => {
+  return age > 19;
+}
+
+console.log(isAdult(20));
