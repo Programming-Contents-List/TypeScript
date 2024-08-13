@@ -23,7 +23,7 @@ export let user: userType = {
   name: 'dongwoo',
   age: 30,
   birthYear: 2000,
-
+  // 오로지 score에서 정해진 정의만 사용이 가능하다.
   1: 'A',
   2: 'B',
   3: 'A',
