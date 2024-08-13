@@ -1,10 +1,17 @@
-// 튜플 타입 지정 방식
+//함수 void, never
 
-//첫 번째 인자는 string, 두 번째 인자는 number
-let b: [string, number];
+//void: void는 반환되는 값이 없을 때이다.
+function sayHello(): void {
+  console.log('hello');
+}
 
-b = ['z', 3];
-// b = [3, '3'];  //-> error
+//never : never는 항상 error를 반환하거나 영원히 끝나지 않는 무한loop일 때 사용한다.
+function showError(): never {
+  throw new Error();
+}
 
-b[0].toLowerCase();
-// b[1].toLowerCase();  //-> error: 숫자에는 대/소문자를 지정할 수 없다.
+function infLoop(): never {
+  while (true) {
+    //do something...
+  }
+}
