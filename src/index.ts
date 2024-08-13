@@ -1,5 +1,5 @@
-const add = (a, b) => {
+const add = (a: number, b: number) => {
   console.log(a, b)
 }
 
-add();
+add(1, 2);
