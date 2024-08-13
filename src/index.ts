@@ -1,7 +1,7 @@
-//return 값의 타입을 지정하지 않으면 자동으로 void로 설정을 해준다.
-const add = (a: number, b: number) => {
-  const result = a + b;
-  console.log(result);
-}
+import { arrNumber, arrString } from "./data/arr";
 
-add(1, 2);
+const showItems = (arr: string[]) => {
+  arr.forEach(element => console.log(element));
+}
+//여기서 함수 자체 파라메터에서도 타입을 개발자가 직접 넣어볼 수 있지 않을까?
+showItems(arrString);
