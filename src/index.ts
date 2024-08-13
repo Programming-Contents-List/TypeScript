@@ -1,7 +1,12 @@
-import { arrNumber, arrString } from "./data/arr";
+//배열 방식 타입 지정
 
-const showItems = (arr: string[]) => {
-  arr.forEach(element => console.log(element));
-}
-//여기서 함수 자체 파라메터에서도 타입을 개발자가 직접 넣어볼 수 있지 않을까?
-showItems(arrString);
+let age: number = 30;
+let isAdult: boolean = true;
+let a: number[] = [1, 2, 3];
+//제네릭을 사용해서 Array의 타입을 지정
+let a2: Array<number> = [1, 2, 3];
+
+let week1: string[] = ['mon', 'tue', 'wed'];
+let week2: Array<string> = ['mon', 'tue', 'wed'];
+
+// week1.push(3); //-> error 타입이 일치하지 않음
