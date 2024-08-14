@@ -8,7 +8,6 @@ export interface userType {
   [grade: number]: Score;
 }
 
-//함수 interface 선언 방식
 export interface Add {
   (num1: number, num2: number): number;
 }
@@ -16,8 +15,6 @@ export interface Add {
 export interface isAdult {
   (age: number): boolean;
 }
-
-// implements
 
 export interface Car {
   color: string;
@@ -34,7 +31,15 @@ interface Toy {
   name: string;
 }
 
-// 동시 확장 방식
 interface ToyCar extends Car, Toy {
   price: number;
+}
+
+export interface User {
+  name: string;
+}
+
+export interface JoinUser {
+  name: string;
+  age: number;
 }
