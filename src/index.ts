@@ -1,30 +1,31 @@
-import { Add, isAdult } from "./utils/data.interface";
+import { Benz, Car } from "./utils/data.interface";
 
-//일반 함수
-
-// function test(x, y): Add {
-//   return x + y;
-// } //-> 잘못된 일반 함수 선언 방법
-
-function test(x: number, y: number): number {
-  return x + y;
+//클래스 : 객체의 행동과 구조를 정의하기에 '='을 사용한다.
+class Bmw implements Car {
+  color = '';
+  constructor(color: string) {
+    this.color = color;
+  }
+  wheels = 4;
+  start() {
+    console.log('go..');
+  }
 }
 
-const addTest: Add = test;
-//왜 function에 인터페이스를 지정 할 수 없는가?
-//TypeScript에서 함수 타입 인터페이스를 직접 함수 선언에 기입하는 것은 불가능
+const b = new Bmw('white');
+console.log(b);
+b.start();
 
-
-//익명 함수
-const add: Add = function (x, y) {
-  return x + y;
+//extends
+//객체 리터럴 : 객체를 리터럴해야하기 때문에 key, value 값으로 정의하게 되고 클래스와 달리 '='를 사용해야 한다.
+const benz: Benz = {
+  color: 'black',
+  wheels: 4,
+  start() {
+    console.log('go...');
+  },
+  door: 5,
+  stop() {
+    console.log('stop...');
+  },
 }
-
-console.log(add(10, 20));
-
-//화살표 함수
-const isAdult: isAdult = (age) => {
-  return age > 19;
-}
-
-console.log(isAdult(20));
