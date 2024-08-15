@@ -1,10 +1,11 @@
 //접근 제한자(Access modifier) - public, private, protected / es6에서는 접근 제한자를 지원하지 않았다 하지만 ts에서는 제공해준다.
 
 class Car {
-  name: string = "car";
+  readonly name: string = "car";
   color: string;
-  constructor(color: string) {
+  constructor(color: string, name: string) {
     this.color = color;
+    this.name = name;
   }
   start(): void {
     console.log("start");
@@ -12,8 +13,9 @@ class Car {
 }
 
 class Bmw extends Car {
-  constructor(color: string) {
-    super(color);
+  constructor(color: string, name: string) {
+    super(color, name);
+    // 참고로 'super()'는 부모(일반적인 super가 아님)의 constructor에 접근
   }
   showName(): void {
     // console.log(super.name); //-> error 이유는 super는 부모 클래스 메서드를 호출 할 때 사용된다. 부모 속성에 접근하려면 this를 사용해야 한다. 즉, constructor에서 사용한 방식과 달리 this를 사용해야한다. 이미 extends Car를 상속받고 있기 때문이다.
@@ -30,6 +32,6 @@ class Bmw extends Car {
   }
 }
 
-const z4 = new Bmw("black");
+const z4 = new Bmw("black", "test");
 console.log(z4.name);
-z4.name = "test";
+// z4.name = "test"; // error -> 현재 name은 readonly이기 때문에 인스턴스 생성자에서 변경을 해야한다.
