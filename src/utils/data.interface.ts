@@ -48,3 +48,17 @@ export interface HighSchoolStudent {
   name: number | string;
   grade: 1 | 2 | 3;
 }
+
+// union types
+
+export interface UnionCar {
+  name: 'car';
+  color: string;
+  start(): void;
+}
+
+export interface UnionMobile {
+  name: 'mobile';
+  color: string;
+  call(): void;
+}
