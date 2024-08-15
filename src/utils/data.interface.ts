@@ -62,3 +62,16 @@ export interface UnionMobile {
   color: string;
   call(): void;
 }
+
+//intersection types
+
+export interface InterCar {
+  name: string;
+  start(): void;
+}
+
+export interface InterToy {
+  name: string;
+  color: string;
+  price: number;
+}
