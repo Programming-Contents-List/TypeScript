@@ -3,12 +3,16 @@
 class Car {
   readonly name: string = "car";
   color: string;
+  static wheels = 4;
   constructor(color: string, name: string) {
     this.color = color;
     this.name = name;
   }
   start(): void {
     console.log("start");
+    console.log(this.name);
+    // console.log(this.wheels);  //-> error : this가 아닌 class 이름으로 접근
+    console.log(Car.wheels);
   }
 }
 
@@ -18,7 +22,6 @@ class Bmw extends Car {
     // 참고로 'super()'는 부모(일반적인 super가 아님)의 constructor에 접근
   }
   showName(): void {
-    // console.log(super.name); //-> error 이유는 super는 부모 클래스 메서드를 호출 할 때 사용된다. 부모 속성에 접근하려면 this를 사용해야 한다. 즉, constructor에서 사용한 방식과 달리 this를 사용해야한다. 이미 extends Car를 상속받고 있기 때문이다.
     console.log(this.name);
     // - private: 부모 name이 private인 경우 error가 나온다. 추가적으로 '#name'은 private로 인식한다.
     // - protected: 부모 name이 protected인 경우 정상 동작한다. 그렇다면 public과 차이는 무엇인가.
@@ -29,9 +32,12 @@ class Bmw extends Car {
     /*
       * 부모 constructor 내부에서 작업을 해야한다. 
     */
+    // - static: static은 정적 맴버 변수를 만들어 줄 수 있다. static에 접근을 하기 위해서는 this가 아닌 class 이름으로 접근을 해야 한다.
   }
 }
 
 const z4 = new Bmw("black", "test");
 console.log(z4.name);
-// z4.name = "test"; // error -> 현재 name은 readonly이기 때문에 인스턴스 생성자에서 변경을 해야한다.
+// z4.name = "test";
+// console.log(z4.wheels);  //-> error : this가 아닌 class 이름으로 접근
+console.log(Car.wheels);
