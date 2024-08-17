@@ -81,3 +81,17 @@ export interface Mobile<T> {
   price: number;
   option: T;
 }
+
+export interface myUser {
+  name: string;
+  age: number;
+}
+
+export interface myCar {
+  name: string;
+  color: string;
+}
+
+export interface myBook {
+  price: number;
+}
