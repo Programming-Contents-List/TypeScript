@@ -75,3 +75,9 @@ export interface InterToy {
   color: string;
   price: number;
 }
+
+export interface Mobile<T> {
+  name: string;
+  price: number;
+  option: T;
+}
