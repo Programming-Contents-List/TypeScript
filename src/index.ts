@@ -1,24 +1,26 @@
 // Generic : 클래스나 타입을 재사용하기 위한 문법
-// 여러개의 타입을 사용하려면 '유니온 타입' 또는 '오버로드'를 사용한다.
 
-function getSize(arr: number[] | string[] | boolean[] | object[]): number {
+// union이 아닌 제네릭 <T>사용하기
+// 여기서 T는 임의의 타입을 나타내는 변수이다. 제네릭 함수가 호출될 때 T는 실제 타입으로 대체된다.
+//따라서 이 함수에서 T는 배열(T[])의 요소 타입을 나타내며 호출 시점에 이 타입이 구체적으로 결정된다.
+
+function getSize<T>(arr: T[]): number {
   return arr.length;
 }
 
 // number Type
-const arr1 = [1, 2, 3];
-getSize(arr1);  //3
+// number로 지정된 타입을 사용할 수도 있지만 유니온을 사용해서 여러 타입을 지정 할수도 있다.
+const arr1 = [1, 2, '3'];
+getSize<number | string>(arr1);
 
 // string Type
 const arr2 = ["a", "b", "c"];
-getSize(arr2);  //3
-
-//하지만 이보다 더 여러개의 타입을 지정하거나 사용 해야한다면 어떻게 해야할까? 유니온 타입으로 모두 다 지정하는 것은 너무 가독성이 떨어진다.
+getSize<string>(arr2);
 
 // boolean Type
 const arr3 = [false, true, true];
-getSize(arr3);
+getSize<boolean>(arr3);
 
 // object Type
 const arr4 = [{}, {}, { name: 'Time' }];
-getSize(arr4);
+getSize<object>(arr4);
