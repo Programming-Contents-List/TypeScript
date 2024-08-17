@@ -95,3 +95,7 @@ export interface myCar {
 export interface myBook {
   price: number;
 }
+
+export interface objectType extends myBook {
+  name?: string;
+}
