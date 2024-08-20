@@ -93,7 +93,7 @@ export interface ScoreTemp {
 export type GradeType = '1' | '2' | '3' | '4';
 export type ScoreType = 'A' | 'B' | 'C' | 'D';
 
-//Exclude
-type T1 = string | number;
-//T1은 Exclude이다. 따라 T1의 유니온으로 지정된 number를 제외하고 string만 사용하는 것이다.
-type T2 = Exclude<T1, number>;
+//NonNullable
+export type T1 = string | null | undefined | void;
+//T2는 NonNullable의 따라 T1의 유니온으로 지정된 null과 undefined를 제외하고 string과 void만 남게 된다.
+export type T2 = NonNullable<T1>;
