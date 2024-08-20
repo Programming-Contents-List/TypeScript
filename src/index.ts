@@ -1,9 +1,10 @@
-// Pick<K,T> : Pick은 내가 원하는 Type만 가지고 와서 사용할 수 있다.
+// Omit<K,T> : Omit은 Pick과 반대로 특정 타입을 생략해서 사용할 수 있다.
+
 import {
   GradeType, ScoreType, User
 } from "./utils/data.interface"
 
-const admin: Pick<User, "id" | "name"> = {
+const admin: Omit<User, "age" | "gender"> = {
   id: 0,
   name: 'Bob',
 }
