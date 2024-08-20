@@ -75,3 +75,25 @@ export interface InterToy {
   color: string;
   price: number;
 }
+
+export interface User {
+  id: number;
+  name: string;
+  age: number;
+  gender: "M" | "F"
+}
+
+export interface ScoreTemp {
+  '1': 'A' | 'B' | 'C' | 'D';
+  '2': 'A' | 'B' | 'C' | 'D';
+  '3': 'A' | 'B' | 'C' | 'D';
+  '4': 'A' | 'B' | 'C' | 'D';
+}
+
+export type GradeType = '1' | '2' | '3' | '4';
+export type ScoreType = 'A' | 'B' | 'C' | 'D';
+
+//NonNullable
+export type T1 = string | null | undefined | void;
+//T2는 NonNullable의 따라 T1의 유니온으로 지정된 null과 undefined를 제외하고 string과 void만 남게 된다.
+export type T2 = NonNullable<T1>;
