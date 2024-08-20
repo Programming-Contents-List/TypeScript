@@ -75,3 +75,10 @@ export interface InterToy {
   color: string;
   price: number;
 }
+
+export interface User {
+  id: number;
+  name: string;
+  age: number;
+  gender: 'm' | 'f';
+}
