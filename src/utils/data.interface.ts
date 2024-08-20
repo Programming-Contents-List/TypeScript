@@ -80,14 +80,15 @@ export interface User {
   id: number;
   name: string;
   age: number;
+  gender: "M" | "F"
 }
 
-export interface ScoreFor {
+export interface ScoreTemp {
   '1': 'A' | 'B' | 'C' | 'D';
   '2': 'A' | 'B' | 'C' | 'D';
   '3': 'A' | 'B' | 'C' | 'D';
   '4': 'A' | 'B' | 'C' | 'D';
 }
 
-export type GradeRecord = '1' | '2' | '3' | '4';
-export type ScoreRecord = 'A' | 'B' | 'C' | 'D';
+export type GradeType = '1' | '2' | '3' | '4';
+export type ScoreType = 'A' | 'B' | 'C' | 'D';
