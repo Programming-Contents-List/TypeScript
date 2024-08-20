@@ -79,6 +79,5 @@ export interface InterToy {
 export interface User {
   id: number;
   name: string;
-  age: number;
-  gender: 'm' | 'f';
+  age?: number;
 }

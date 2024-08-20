@@ -1,9 +1,9 @@
-// Partial<T>
+// Required<T> : required는 Partial과 달리 모든 속성들을 필수로 작성해줘야한다.
 
 import { User } from "./utils/data.interface"
 
-let admin: Partial<User> = {
+let admin: Required<User> = {
   id: 1,
   name: "Bob",
-  // job:"" //-> error interface에 없는 객체를 사용하려고 해서 발생하는 에러이다.
+  age: 30,
 }
