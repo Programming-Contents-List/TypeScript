@@ -76,24 +76,26 @@ export interface InterToy {
   price: number;
 }
 
-export interface User {
-  id: number;
+export interface Mobile<T> {
+  name: string;
+  price: number;
+  option: T;
+}
+
+export interface myUser {
   name: string;
   age: number;
-  gender: "M" | "F"
 }
 
-export interface ScoreTemp {
-  '1': 'A' | 'B' | 'C' | 'D';
-  '2': 'A' | 'B' | 'C' | 'D';
-  '3': 'A' | 'B' | 'C' | 'D';
-  '4': 'A' | 'B' | 'C' | 'D';
+export interface myCar {
+  name: string;
+  color: string;
 }
 
-export type GradeType = '1' | '2' | '3' | '4';
-export type ScoreType = 'A' | 'B' | 'C' | 'D';
+export interface myBook {
+  price: number;
+}
 
-//NonNullable
-export type T1 = string | null | undefined | void;
-//T2는 NonNullable의 따라 T1의 유니온으로 지정된 null과 undefined를 제외하고 string과 void만 남게 된다.
-export type T2 = NonNullable<T1>;
+export interface objectType extends myBook {
+  name?: string;
+}
