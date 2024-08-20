@@ -79,5 +79,15 @@ export interface InterToy {
 export interface User {
   id: number;
   name: string;
-  age?: number;
+  age: number;
 }
+
+export interface ScoreFor {
+  '1': 'A' | 'B' | 'C' | 'D';
+  '2': 'A' | 'B' | 'C' | 'D';
+  '3': 'A' | 'B' | 'C' | 'D';
+  '4': 'A' | 'B' | 'C' | 'D';
+}
+
+export type GradeRecord = '1' | '2' | '3' | '4';
+export type ScoreRecord = 'A' | 'B' | 'C' | 'D';
