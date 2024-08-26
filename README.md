@@ -7,7 +7,7 @@
 - recnently : 최신 학습한 코드를 관리한다.
 
 ## Rules
-- main과 format은 변경해서는 안된다.
+- main ~과 format~ 은 변경해서는 안된다.
 - 학습한 코드는 recently로 merge한다.
 - 강의 Branch를 생성, 작성하는 방법은 `lectureName/sectionN`와 같이 작성한다.
 - 학습한 강의 내용 및 정리는 PR에 작성한다.
