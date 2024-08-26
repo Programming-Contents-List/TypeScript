@@ -3,7 +3,7 @@
 ## Branch
 - main : typescript를 학습하기 위한 기본 세팅을 관리한다.
 - lectureName : 강의 이름으로 Branch를 생성하고 해당 강의의 코드를 관리한다.
-- format : typescript를 학습하기 위한 기본 세팅을 관리한다.
+- ~format : typescript를 학습하기 위한 기본 세팅을 관리한다.~
 - recnently : 최신 학습한 코드를 관리한다.
 
 ## Rules
