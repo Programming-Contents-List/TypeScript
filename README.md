@@ -16,6 +16,9 @@
 ## Lecture
 - 👨‍💻[CodingDev](https://youtube.com/playlist?list=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EGlx0&si=wYBdejCaW81DUMUj "코딩앙마-YouTube")
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
+<details>
+  <summary>Lecture List</summary>
+</details>
 
 💻Ts-PlayGround
 - [Ts-PlayGround](https://www.typescriptlang.org/ko/play/?#code/Q "TypeScript PlayGround")
