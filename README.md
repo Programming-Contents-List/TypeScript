@@ -18,6 +18,7 @@
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
   <details>
     <summary>Lecture List</summary>
+     &nbsp;&nbsp;&nbsp;&nbsp;
       <details>
           <summary>Section 2</summary>
           <ul>
