@@ -15,6 +15,11 @@
 
 ## Lecture
 - 👨‍💻[CodingDev](https://youtube.com/playlist?list=PLZKTXPmaJk8KhKQ_BILr1JKCJbR0EGlx0&si=wYBdejCaW81DUMUj "코딩앙마-YouTube")
+  - run vsc (npm run start)
+    ```
+      //package.json
+        "start": "ts-node src/index.ts"
+    ```
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
   <dl>
     <details>
