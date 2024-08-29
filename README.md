@@ -18,35 +18,35 @@
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
   <details>
     <summary>Lecture List</summary>
-      <details style="margin-left: 20px;">
-          <summary>Section 2</summary>
-          <ul>
-              <li>(14) 숫자 문자열 및 불리언 작업하기: #</li>
-              <li>(15) 타입 할당 및 타입 추론하기: #</li>
-              <li>(16) 객체 형태: #</li>
-              <li>(18) 배열 타입: #</li>
-              <li>(19) 튜플 작업하기: #</li>
-              <li>(20) 열거형으로 작업하기: #</li>
-              <li>(21) Any 타입: #</li>
-              <li>(22) 조합 타입: #</li>
-              <li>(23) 리터럴 타입: #</li>
-              <li>(24) 타입 알리어스 / 사용자 정의 타입: #</li>
-              <li>(25) 타입 알리어스 및 객체 타입: #</li>
-              <li>(26) 함수 반환 타입 및 "무효": #</li>
-              <li>(27) 타입의 기능을 하는 함수: #</li>
-              <li>(28) 함수 타입 및 콜백: #</li>
-              <li>(29) 알 수 없는 타입: #</li>
-              <li>(30) 절대 타입: #</li>
-          </ul>
-      </details>
-      <details style="margin-left: 20px;">
-          <summary>Section 3</summary>
-          <p>Section 3 content goes here.</p>
-      </details>
-      <details style="margin-left: 20px;">
-          <summary>Section 4</summary>
-          <p>Section 4 content goes here.</p>
-      </details>
+        <details>
+            <summary>Section 2</summary>
+            <ul>
+                <li>(14) 숫자 문자열 및 불리언 작업하기: #</li>
+                <li>(15) 타입 할당 및 타입 추론하기: #</li>
+                <li>(16) 객체 형태: #</li>
+                <li>(18) 배열 타입: #</li>
+                <li>(19) 튜플 작업하기: #</li>
+                <li>(20) 열거형으로 작업하기: #</li>
+                <li>(21) Any 타입: #</li>
+                <li>(22) 조합 타입: #</li>
+                <li>(23) 리터럴 타입: #</li>
+                <li>(24) 타입 알리어스 / 사용자 정의 타입: #</li>
+                <li>(25) 타입 알리어스 및 객체 타입: #</li>
+                <li>(26) 함수 반환 타입 및 "무효": #</li>
+                <li>(27) 타입의 기능을 하는 함수: #</li>
+                <li>(28) 함수 타입 및 콜백: #</li>
+                <li>(29) 알 수 없는 타입: #</li>
+                <li>(30) 절대 타입: #</li>
+            </ul>
+        </details>
+        <details>
+            <summary>Section 3</summary>
+            <p>Section 3 content goes here.</p>
+        </details>
+        <details>
+            <summary>Section 4</summary>
+            <p>Section 4 content goes here.</p>
+        </details>
 </details>
 
 💻Ts-PlayGround
