@@ -18,8 +18,7 @@
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
   <details>
     <summary>Lecture List</summary>
-     &nbsp;&nbsp;&nbsp;&nbsp;
-      <details>
+      <details style="margin-left: 20px;">
           <summary>Section 2</summary>
           <ul>
               <li>(14) 숫자 문자열 및 불리언 작업하기: #</li>
@@ -40,11 +39,11 @@
               <li>(30) 절대 타입: #</li>
           </ul>
       </details>
-      <details>
+      <details style="margin-left: 20px;">
           <summary>Section 3</summary>
           <p>Section 3 content goes here.</p>
       </details>
-      <details>
+      <details style="margin-left: 20px;">
           <summary>Section 4</summary>
           <p>Section 4 content goes here.</p>
       </details>
