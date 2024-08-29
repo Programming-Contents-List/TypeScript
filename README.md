@@ -21,7 +21,7 @@
       <summary>Lecture List</summary>
         <dd>
           <details>
-            <summary>Section 2</summary>
+            <summary>Section2: TypeScript 기본& 기본 타입</summary>
                 <dd>(14) 숫자 문자열 및 불리언 작업하기: #</dd>
                 <dd>(15) 타입 할당 및 타입 추론하기: #</dd>
                 <dd>(16) 객체 형태: #</dd>
@@ -43,6 +43,12 @@
         <dd>  
           <details>
             <summary>Section 3</summary>
+                <dd>-: #</dd>
+          </details>
+        </dd>
+        <dd>  
+          <details>
+            <summary>Section11: TypeScript와 함께 Webpack 사용하기</summary>
                 <dd>-: #</dd>
           </details>
         </dd>
