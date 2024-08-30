@@ -21,6 +21,11 @@
         "start": "ts-node src/index.ts"
     ```
 - 👨‍💻[UdemyTs](https://www.udemy.com/course/best-typescript-21/?couponCode=SKILLS4SALEA "TypeScript-Udemy")
+  - run vsc (npm run start)
+    ```
+      ::CMD
+        tsc app.ts
+    ```
   <dl>
     <details>
       <summary>Lecture List</summary>
