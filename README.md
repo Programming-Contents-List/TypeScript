@@ -48,7 +48,12 @@
         <dd>  
           <details>
             <summary>Section 3</summary>
-                <dd>-: #</dd>
+                <dd>(153) Webpack 설치하기& 중요 종속성: #</dd>
+                <dd>(154) 입력& 출력 구성 추가하기: #</dd>
+                <dd>(155) ts-loader 패키지로 TypeScript 지원 추가하기: #</dd>
+                <dd>(156) 웹팩 구성(Config) 조정하기: #</dd>
+                <dd>(157) 설정 완료하기& Webpack-dev-server 추가하기: #</dd>
+                <dd>(158) 생산 워크플로 추가하기: #</dd>
           </details>
         </dd>
         <dd>  
