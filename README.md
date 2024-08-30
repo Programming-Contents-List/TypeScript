@@ -9,7 +9,7 @@
 ## Rules
 - main ~과 format~ 은 변경해서는 안된다.
 - 학습한 코드는 recently로 merge한다.
-- 강의 Branch를 생성, 작성하는 방법은 `lectureName/sectionN`와 같이 작성한다.
+- 강의 Branch를 생성, 작성하는 방법은 `lectureName/sectionN/N`과 같이 작성한다. (ex.UdemyTs/section2/14)
 - 학습한 강의 내용 및 정리는 PR에 작성한다.
 - issue는 학습한 내용에서 발생한 문제점과 부족한 점을 위주로 작성한다.
 
