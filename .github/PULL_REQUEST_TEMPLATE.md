@@ -1,12 +1,3 @@
----
-name: lectureName/sectionN/N
-about: 어떤 학습을 했는지 적어주세요.
-title: lectureName/sectionN/N
-labels: ''
-assignees: 4BFC
-
----
-
 ✍LectureName/sectionN/N
 
 🔗Reference
