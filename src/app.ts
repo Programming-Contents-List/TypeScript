@@ -1,20 +1,26 @@
-const ADMIN = 0;
-const READ_ONLY = 1;
-const AUTHOR = 2;
+// const ADMIN = 0;
+// const READ_ONLY = 1;
+// const AUTHOR = 2;
+
+enum Role {
+  ADMIN, READ_ONLY, AUTHOR
+};
 
 const person = {
   name: 'Maximilian',
   age: 30,
   hobbies: ['Sports', 'Cooking'],
-  role: ADMIN,  //0
+  role: Role.ADMIN,  //0
 };
 
-person.role = READ_ONLY;
+// person.role = Role.READ_ONLY;
+// error -> error TS2367: This comparison appears to be unintentional because the types 'Role.READ_ONLY' and 'Role.ADMIN' have no overlap.
+// 원인 : person.role이 Role.READ_ONLY로 설정된 후, TypeScript는 person.role이 더 이상 Role.ADMIN과 같은 값이 될 수 없다고 판단하는 것
 
-if (person.role === ADMIN) {
+if (person.role === Role.ADMIN) {
   console.log(person.role);
-} else if (person.role === READ_ONLY) {
+} else if (person.role === Role.READ_ONLY) {
   console.log(person.role);
-} else if (person.role === AUTHOR) {
+} else if (person.role === Role.AUTHOR) {
   console.log(person.role);
 }
