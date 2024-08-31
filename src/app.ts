@@ -1,13 +1,25 @@
-//console.log(person.name); 으로 person.name, 객체 타입으로 접근하기 위한 object 타입 정의 방법
-const person: {
-  //entry 추가
-  //앞서 말했 듯 객체 타입을 정의하기 위해서는 할당 후 `;`를 붙여야 한다.
-  name: string;
-  age: number;
-  // 이렇게 작성을 하게 되면 추후에 정의한 객체 타입을 재활용할 수 있게 된다.
-} = {  //`{}` 특정 객체 타입을 위한 표기법, 객체의 구조 정보를 제공하는 것. 빈 `{}`으로 할당을 하면 객체로 할당하는 것과 동일시한다.
+const person = {
   name: 'Maximilian',
-  age: 30
+  age: 30,
+  hobbies: ['Sports', 'Cooking']
 };
 
-console.log(person.name); //error : Object에 name이 없습니다. 그렇다면 어떻게 해야할까?
+let favoriteActivities: string[];
+favoriteActivities = ['Sports'];
+
+console.log(person.name);
+
+//hobby: 문자열
+for (const hobby of person.hobbies) {
+  //여기서 hobby는 문자열로 취급이 되고 있다.
+  //이유는 타입 추론으로 인해서다. person.hobbies는 문자열 배열이라고 인식하고 있기 때문이다.
+  console.log(hobby);
+  //하지만 map으로 접근을 하게 되면 error가 발생한다. 이유는 문자열은 map으로 사용할 수 없다.
+  // console.log(hobby.map(el => console.log(el)));// 만약 사용하고 싶다면 person.hobbies를 다른 변수로 정의하고 map을 사용하면 문제 없이 사용할 수다.
+}
+
+//arr: 문자열 배열
+let hobby = person.hobbies;
+// let arr = person.hobbies;
+let arr = hobby;
+arr.map(el => console.log(el));
