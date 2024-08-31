@@ -2,10 +2,10 @@
   "name": "typescript-lecture",
   "version": "0.0.0",
   "description": "typescript",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/app.ts",
     "build": "tsc --build",
     "clean": "tsc --build --clean"
   },
