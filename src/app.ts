@@ -3,7 +3,7 @@
 // const AUTHOR = 2;
 
 enum Role {
-  ADMIN = 5, READ_ONLY, AUTHOR  //이후로는 +1씩 증가를 한다.
+  ADMIN = 5, READ_ONLY = 'READ_ONLY', AUTHOR = 100  //이후로는 +1씩 증가를 한다.
 };
 
 const person = {
