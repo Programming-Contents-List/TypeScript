@@ -1,21 +1,28 @@
-function combine(n1: number | string, n2: number | string) {
+function combine(
+  n1: number | string,
+  n2: number | string,
+  resultConversion: 'as-number' | 'as-text', // 이렇게 타입을 지정할 수도 있지만 리터럴 타입을 직접 지정할 수 있다.
+) {
   let result;
-  if (typeof n1 === 'number' && typeof n2 === 'number') {
-    result = n1 + n2;
+  if (typeof n1 === 'number' && typeof n2 === 'number' || resultConversion === 'as-number') {
+    result = +n1 + +n2; //error ts(2365) -> n1, n2외 다른 인자 추가되면서 조건문에서의 논리적 흐름이 충분히 명확하지 않아 발생할 수 있다. 따라서 이 코드에서 TypeScript는 n1과 n2가 string 타입일 가능성이 있다고 판단, 인자들을 사용할 때 더 명확한 타입을 요구 따라 '+'를 추가함, 이는 리터럴 타입과는 무관하다.
   } else if (typeof n1 === 'string' && typeof n2 === 'string') {
     result = n1 + n2;
   } else {
     result = n1.toString() + n2.toString();
-  } // 해결 방법: if문으로 typeof로 각 타입들이 무엇인지 식별한 후 연산을 적용한다. 연산이 적용되지 않는 타입들은 모두 string으로 형변환 후 연산을 시켜주면 된다. 따라서 유니온 타입으로 여러 타입을 유연하게 사용할 수 있지만 이것들을 활용할 때는 정확히 어떤 타입을 받는지에 관한 로직이 보통 함수나 클래스 구조에 많이 필요하다.
-  return result;
+  }
+  // if (resultConversion === 'as-number') {
+  //   return +result;
+  // } else {
+  //   return result.toString();
+  // }
 }
-// Ts가 염려하는 error의 근원은 아래와 같다.
-// const b1: boolean = true;
-// const b2: boolean = false;
-// console.log(b1 + b2);
+// 리터럴 타입이란? 리터럴 타입은 특정 변수나 어떤 타입이어야 하는지 정의하는게 아니다. 단진 정확히 어떤 값인지 정의하는 것이다. 이를 확인하기 위해서는 마우스를 원하는 값에 호버하면 반환되는 값이 무엇인지 확인이 된다. Ts는 알아갈 수록 점점 타입들을 구체적으로 좁혀가는 것으로 보인다.
+const combineAges = combine(20, 30, 'as-number');
+console.log(combineAges);
 
-const CombineAges = combine(20, 30);
-console.log(CombineAges);
+const combinedStringAges = combine('20', '30', 'as-number');
+console.log(combinedStringAges);
 
-const CombineNames = combine('Max', 'Anna');
-console.log(CombineNames);
+const combineNames = combine('Max', 'Anna', 'as-text');
+console.log(combineNames);
