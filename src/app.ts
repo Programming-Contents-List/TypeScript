@@ -1,7 +1,7 @@
 function combine(
   n1: number | string,
   n2: number | string,
-  resultConversion: string, // 이렇게 타입을 지정할 수도 있지만 리터럴 타입을 직접 지정할 수 있다.
+  resultConversion: 'as-number' | 'as-text', // 이렇게 타입을 지정할 수도 있지만 리터럴 타입을 직접 지정할 수 있다.
 ) {
   let result;
   if (typeof n1 === 'number' && typeof n2 === 'number' || resultConversion === 'as-number') {
