@@ -9,11 +9,11 @@ function addTemplate(n1: number, n2: number, showResult: boolean, phrase: string
 
 const number1 = 5;
 const number2 = 2.8;
-const printResult = true;
+const printResultTemp = true;
 const resultPhrase = 'Result is: ';
 // resultPhrase = 0;  //error -> 타입 추론으로 resultPhrase는 string이다. 따라 0이라는 number타입을 할당할 수 없다.
 
-addTemplate(number1, number2, printResult, resultPhrase);
+addTemplate(number1, number2, printResultTemp, resultPhrase);
 
 const person: {
   name: string,
