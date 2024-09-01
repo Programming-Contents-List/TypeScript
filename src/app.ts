@@ -1,11 +1,12 @@
 //항상 유니온 타입을 지정하는 것은 많이 번거롭다. 이에 alias 타입으로 사용자 지정 타입을 정할 수 있다. 즉, 타입을 우리가 다로 별칭으로 만들어 낼 수 있다.
 
-type Combinable = number;
+type Combinable = number | string;
+type ConversionCustom = 'as-number' | 'as-text';
 
 function combine(
-  n1: Combinable | string,
-  n2: Combinable | string,
-  resultConversion: 'as-number' | 'as-text',
+  n1: Combinable,
+  n2: Combinable,
+  resultConversion: ConversionCustom,
 ) {
   let result;
   if (typeof n1 === 'number' && typeof n2 === 'number' || resultConversion === 'as-number') {
