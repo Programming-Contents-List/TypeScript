@@ -1,26 +1,25 @@
-// const ADMIN = 0;
-// const READ_ONLY = 1;
-// const AUTHOR = 2;
-
-enum Role {
-  ADMIN = 5, READ_ONLY = 'READ_ONLY', AUTHOR = 100  //이후로는 +1씩 증가를 한다.
-};
-
-const person = {
+const person: {
+  name: string,
+  age: number,
+  hobbies: string[];
+  role: (number | string)[];
+} = {
   name: 'Maximilian',
   age: 30,
   hobbies: ['Sports', 'Cooking'],
-  role: Role.ADMIN,  //0
+  role: [2, 'author']
 };
 
-// person.role = Role.READ_ONLY;
-// error -> error TS2367: This comparison appears to be unintentional because the types 'Role.READ_ONLY' and 'Role.ADMIN' have no overlap.
-// 원인 : person.role이 Role.READ_ONLY로 설정된 후, TypeScript는 person.role이 더 이상 Role.ADMIN과 같은 값이 될 수 없다고 판단하는 것
+person.role.push('admin');
+person.role[1] = 10;
+person.role = [0, 'admin', 'user'];
 
-if (person.role === Role.ADMIN) {
-  console.log(person.role);
-} else if (person.role === Role.READ_ONLY) {
-  console.log(person.role);
-} else if (person.role === Role.AUTHOR) {
-  console.log(person.role);
+//any는 어떤 타입이든 허용하는 타입이다. 어떻게 보면 유연하다고 느껴지질지 모르겠지만 타입스크립트의 장점을 전혀 활용하지 못하기에 좋은 방법은 아니다.
+let favoriteActivities: any[];
+favoriteActivities = ['Sports', 1]; //이렇게 배열에 마구잡이로 서로 다른 타입을 넣어도 아무런 에러가 일어나지 않는다.
+
+console.log(person.name);
+
+for (const hobby of person.hobbies) {
+  console.log(hobby);
 }
