@@ -1,7 +1,4 @@
-let userInput: unknown; // any 와 비교가 되는 unknown Type
-//unknown Type은 어떤 타입이 사용될지 모를 때 사용된다.
-//any와의 차이
-// userName에 userInput을 할당 했지만 오류가 발생한다. unknown을 any로 교체하면 해당 에러는 사라진다. 즉, 타입이 정확히 정해지지 않았을 뿐, any처럼 어떤 값이든 무작위로 사용을 허용한다는 것은 아니다. 다시 말해서 typeof로 확인을 해보면 마지막에 할당 한 값으로 userInput은 값이 할당 되어 있다.literal Type을 확인하면 여전히 unknown으로 할당이 된다.
+let userInput: unknown;
 
 let userName: string;
 userInput = 5;
@@ -9,11 +6,16 @@ userInput = 'Max';
 
 console.log(typeof userInput);
 
-//userName = userInput; //error ts(2322) -> 'unknown' 형식은 'string' 형식에 할당할 수 없습니다.
-//그렇다면 userName에 userInput 값을 할당이 가능하게 하려면 어떻게 해야할까? 지난 강의에서도 계속 언급했듯 if문이라는 조건문을 통해서 userName의 타입을 확인 할 수 있는 환경을 조성해주면 된다.
-
 if (typeof userInput === 'string') {
   userName = userInput;
 }
 
-//결론적으로 any보다 unknown으로 타입을 할당하게 되면 if문으로 검수,검토를 통해서 값을 재할당하거나 활용할 수 있기 때문에 가시적으로도 코드의 가독성적으로도 훨씬 안정적인 코드를 작성할 수 있다.
+function generateError(message: string, code: number): never { //:never
+  throw { message: message, errorCode: code };
+} //generateError는 never타입을 반환한다. 이유는 throw 때문인데 절대적으로 값이 변하면 안되기 때문이다. 따라서 never타입은 다음과 같다.
+//never 타입은 어떠한 값도 반환하지 않는 함수의 반환 타입을 나타낸다. 이 타입은 함수가 정상적으로 완료되지 않고 항상 예외를 던지거나 무한 루프에 빠져 끝나지 않는 경우에 사용된다. 오해하지 말아야할 것은 literal type으로 확인을 하면 void로 선언이 되어있지만 throw를 사용하면 무조건으로 never가 반환된다. 따라서 암묵적으로 never를 반환은 하지만 never타입임을 코드에 명시해주는 것이 좋다.
+
+const resultError = generateError('An error occurred!', 500);
+console.log('resultError: ', resultError);  //본래 일반적인 함수라면 undefined를 반환해야한다.
+//하지만 아무것도 반환되는 것이 없다. 이유는 generateError는 never 타입으로 반환이 되기 때문에 컴파일이 중도 정지가 되는 것이다.
+//참고로 throw는 try,catch를 사용해도 무시하지 않고 중도 정지가 된다.
