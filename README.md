@@ -27,10 +27,10 @@
         tsc app.ts
     ```
   <dl>
-    <details>
+    <details open>
       <summary>Lecture List</summary>
         <dd>
-          <details>
+          <details open>
             <summary>Section2: TypeScript 기본& 기본 타입</summary>
                 <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/18">(14) 숫자 문자열 및 불리언 작업하기</a></dd>
                 <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/21">(15) 타입 할당 및 타입 추론하기</a></dd>
@@ -45,8 +45,8 @@
                 <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/30">(26) 함수 반환 타입 및 "무효"</a></dd>
                 <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/31">(27) 타입의 기능을 하는 함수</a></dd>
                 <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/32">(28) 함수 타입 및 콜백</a></dd>
-                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/#">(29) 알 수 없는 타입</a></dd>
-                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/#">(30) 절대 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/33">(29) 알 수 없는 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/34">(30) 절대 타입</a></dd>
           </details>
         </dd>
         <dd>  
