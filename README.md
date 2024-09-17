@@ -55,6 +55,12 @@
                 <dd>-: #</dd>
           </details>
         </dd>
+      <dd>
+          <details open>
+            <summary>Section5: 클래스 & 인터페이스</summary>
+                <dd><a href="https://#">(59) 퍼스트 클래스 만들기</a></dd>
+          </details>
+        </dd>
         <dd>  
           <details>
             <summary>Section11: TypeScript와 함께 Webpack 사용하기</summary>
