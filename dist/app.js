@@ -1,9 +1,8 @@
 "use strict";
-var Department = /** @class */ (function () {
-    function Department(n) {
+class Department {
+    constructor(n) {
         this.name = n;
     }
-    return Department;
-}());
-var accounting = new Department('Accounting');
+}
+const accounting = new Department('Accounting');
 console.log(accounting);
