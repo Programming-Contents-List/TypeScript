@@ -10,3 +10,5 @@ var Department = /** @class */ (function () {
 }());
 var accounting = new Department('Accounting');
 accounting.describe();
+var accountingCopy = { describe: accounting.describe };
+accountingCopy.describe;
