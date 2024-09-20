@@ -13,4 +13,4 @@ accounting.describe();
 
 const accountingCopy = { describe: accounting.describe };
 
-accountingCopy.describe;
+accountingCopy.describe();
