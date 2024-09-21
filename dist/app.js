@@ -1,5 +1,6 @@
 "use strict";
 var Department = /** @class */ (function () {
+    // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
     function Department(id, name) {
         this.id = id;
         this.name = name;
@@ -13,6 +14,7 @@ var Department = /** @class */ (function () {
         console.log("Department (".concat(this.id, "): ").concat(this.name));
     };
     Department.prototype.addEmployee = function (employee) {
+        // this.id = '2';  // readonly이기 때문에 error가 발생한다.
         this.employees.push(employee);
     };
     Department.prototype.printEmployeeInformation = function () {
