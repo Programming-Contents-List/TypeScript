@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w",
     "start": "ts-node src/app.ts",
     "build": "tsc --build",
     "clean": "tsc --build --clean"

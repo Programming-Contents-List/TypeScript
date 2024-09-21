@@ -1,19 +1,30 @@
 class Department {
   name: string;
+  employees: string[] = [];
   constructor(n: string) {
     this.name = n;
   }
   describe(this: Department) {
     console.log(`Department: ` + this.name)
   }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+
+  printEmployeeInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
 const accounting = new Department('Accounting');
+
+accounting.addEmployee('Max');
+accounting.addEmployee('Manu');
+
+accounting.employees[2] = 'Anna';
+//위와 같은 방식으로 코드를 작성하고 실행해도 정상적으로 동작을 하지만 복잡한 코드에서 위와 같은 방식은 좋은 방식이 아니다. 따라서 employee를 접근할 수 없게 해야한다. 따라 접근 범위를 제한할 수 있는 private를 사용하면 된다.
+
 accounting.describe();
-
-const accountingCopy = { name: 'newName', describe: accounting.describe };
-//여기서 undefined를 출력하는 이유는 describe가 참조하는 것이 무엇인지 알 수 없기 때문이다.
-//따라서 accountingCopy와 같이 새로운 객체로 재생성을 해서 할당하기 위해서는 class의 describe함수의 매개변수에
-//this를 넣고 타입지정을 Department로 설정한 뒤(즉, 청사진을 참조하게 설정) accountingCopy에 name 프로퍼티를 기입, 할당해줘야 한다.
-
-accountingCopy.describe();
+accounting.printEmployeeInformation();
