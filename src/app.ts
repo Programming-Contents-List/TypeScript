@@ -7,8 +7,10 @@ class Department {
   constructor(private readonly id: string, public name: string) {
     // this.id = id;
     // this.name = n
+    // console.log(this.fiscalYear); //Error: static은 생성자가 필요 없기 때문에 Error 발생 즉, 생성자 함수, 클래스 내부에서는 static으로 선언된 정적인 함수, 변수는 재정의나 활용이 불가능 
+    //만약 접근을 하려면 해당 클래스를 명시하고 접근을 해야 정상동작
+    console.log(Department.fiscalYear); //정상동작
   }
-
   static createEmployee(name: string) {
     return { name: name };
   }
