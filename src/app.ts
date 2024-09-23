@@ -1,4 +1,4 @@
-class Department {
+abstract class Department {
   // private id: string;
   // private name: string;
   private employees: string[] = [];
@@ -15,9 +15,12 @@ class Department {
     return { name: name };
   }
 
-  describe(this: Department) {
-    console.log(`Department (${this.id}): ${this.name}`);
-  }
+  //abstract인 추상 함수를 사용하라면 해당 class 또한 abstract로 정의 되어야 한다.
+  abstract describe(this: Department): void;  //또한 해당 추상 함수에 어떠한 것도 정의되어 있으면 안된다.
+  //이제 Department와 연관된 모든 클래스들은 Error가 발생할 것이다.
+  // {
+  //   console.log(`Department (${this.id}): ${this.name}`);
+  // }
 
   addEmployee(employee: string) {
     // this.id = '2';  // readonly이기 때문에 error가 발생한다.
@@ -38,6 +41,7 @@ class ITDepartment extends Department {
   }
 }
 
+//
 class AccountingDepartment extends Department {
   private lastReport: string;
 
