@@ -7,6 +7,7 @@ class Department {
     // this.id = id;
     // this.name = n
   }
+
   describe(this: Department) {
     console.log(`Department (${this.id}): ${this.name}`);
   }
@@ -45,13 +46,12 @@ class AccountingDepartment extends Department {
       throw new Error('Please pass in a valid value!')
     }
     this.addReport(value);
-    this.lastReport = value;  // 여기서 lastReport를 업데이트 그래야 lastReport가 비어있지 않기 때문에 정상적으로 동작을 한다.
+    this.lastReport = value;
   }
 
   constructor(id: string, private reports: string[]) {
     super(id, 'Account');
-    //strictPropertyInitialization 활성화로 초기화 해줘야 함.
-    this.lastReport = reports[0] || ""; // 초기값을 할당 (reports가 비어있으면 빈 문자열)
+    this.lastReport = reports[0] || "";
   }
 
   addReport(text: string) {
@@ -66,6 +66,8 @@ class AccountingDepartment extends Department {
 const accounting = new Department('1', 'Accounting');
 const ITaccounting = new ITDepartment('2', ['Max']);
 
+Math.pow(1, 2); //new, 인스턴스를 사용하지 않고 바로 사용할 수 있는 클래스 Math가 있다. 이와 같이 우리의 class도 구현 해볼 것이다. 방법은 static을 사용하는 것이다.
+
 ITaccounting.addEmployee('Max');
 ITaccounting.addEmployee('Manu');
 
@@ -75,10 +77,10 @@ ITaccounting.printEmployeeInformation();
 
 const NewAccounting = new AccountingDepartment('d2', []);
 
-// console.log(NewAccounting.mostRecentReport);  //report가 추가되지 않아서 Error
+// console.log(NewAccounting.mostRecentReport);
 NewAccounting.setMostRecentReport = 'Year End Report';
 NewAccounting.addReport('Something went wrong...');
 
-console.log(NewAccounting.mostRecentReport);  //report가 있어서 문제없이 출력
+console.log(NewAccounting.mostRecentReport);
 
 NewAccounting.printReports();
