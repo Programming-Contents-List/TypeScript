@@ -32,7 +32,6 @@ abstract class Department {
     console.log(this.employees);
   }
 }
-//이또한 추상 함수를 정의 해줘야한다.
 class ITDepartment extends Department {
   admins: string[];
   constructor(id: string, admins: string[]) {
@@ -45,9 +44,11 @@ class ITDepartment extends Department {
   };
 }
 
-//현재 abstract 클래스, 추상 함수 describe를 상속받고 있는 Department이기에 Error가 발생 따라 abstract 클래스, 함수가 있는경우 해당 abstract 함수, 변수들은 상속 받은 자식들은 필수로 자식 내부에 정의가 되어 있아야한다.
+//현재 상황에서 회계관련 문서가 하나밖에 없다고 가정
+//따라서 private를 활용해야 한다.
 class AccountingDepartment extends Department {
   private lastReport: string;
+  private static instance: AccountingDepartment;
 
   get mostRecentReport() {
     if (this.lastReport) {
@@ -63,12 +64,22 @@ class AccountingDepartment extends Department {
     this.addReport(value);
     this.lastReport = value;
   }
-
-  constructor(id: string, private reports: string[]) {
+  //접근제한자: private 부여
+  private constructor(id: string, private reports: string[]) {
     super(id, 'Account');
     this.lastReport = reports[0] || "";
   }
-  //추상함수 정의
+
+  static getInstance() {
+    //this.instance 또는 직접적으로 접근
+    if (AccountingDepartment.instance) {  //인스턴스가 없다면 new키워드로 새로운 인스턴스를 생성한다. 이를 통해 하나의 인스턴스로만 동작
+      return this.instance;
+    }
+
+    this.instance = new AccountingDepartment('d2', []);
+    return this.instance;
+  }
+
   describe() {
     console.log(`Department (${this.id}): ${this.name}`);
   };
@@ -96,7 +107,12 @@ ITaccounting.addEmployee('Manu');
 ITaccounting.describe();
 ITaccounting.printEmployeeInformation();
 
-const NewAccounting = new AccountingDepartment('d2', []);
+// const NewAccounting = new AccountingDepartment('d2', []); //이제 AccountingDepartment를 사용하려면 생성자가 static이기에 직접 접근방식으로 사용해야한다.
+
+const NewAccounting = AccountingDepartment.getInstance();
+const NewAccounting2 = AccountingDepartment.getInstance();
+//이제 이둘의 클래스 변수는 하나의 인스턴스로만 접근해서 동작하고 구현된다.
+console.log(NewAccounting, NewAccounting2);
 
 // console.log(NewAccounting.mostRecentReport);
 NewAccounting.setMostRecentReport = 'Year End Report';
