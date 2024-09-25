@@ -1,30 +1,23 @@
-// interface를 왜 사용할까 단순히 Type을 지정하기 위함인가?
-// 그렇다면 type Person과 같이 정의하면 문제 없지 않은가?
-// 이렇게사용을 해도 문제 없이 동작을한다. 하지만 분명한 차이점이 있다.
-// type Person = {
-//   name: string;
-//   age: number;
+interface Named {
+  readonly name: string;
+}
 
-//   greet(phrase: string): void;
-// }
-
-// 분명한 차이점
-// type을 사용해서 유니온타입과 같이 커스텀하면 분명 유연할 수는 있지만 인터페이스를 사용하면 훨신 명확해진다는 장점이 있다.
-// - 인터페이스로 정의하면 객체의 구조를 정의하고자 한다는 것을 명확하게 나타낼 수 있다. 따라서 객체의 타입으로 정의, 커스텀 타입을 사용하기 보다는 인터페이스를 자주 사용한다.
-// - 클래스 안에 인터페이스를 구현할 수 있다. 즉, 클래스로 사용하는 문법으로도 인터페이스를 정의할 수 있다는 장점이 있다. 즉, interface로 extends, override와 같이 상송 구조로 공유성을 확보할 수 있으며 클래스인 implements를 사용해서 클래스와 연동, 혼용이 가능하다.
-
-// 미묘한 차이점
-// 
-interface GreetAble {
-  name: string;
+interface GreetAble extends Named {
   greet(phrase: string): void;
 }
 
 class Person implements GreetAble {
-  name: string;
+  name: string;  //주석 처리하면 error발생
   age: number;
   constructor(n: string, N: number) {
-    this.name = n;
+    this.name = n;  // error ts(2339): name이 Person에서 구현되지 않았다고 error
+    // 그렇다면 왜 name과 관련된 GreatAble을 상속 받고 있는데 에러가 발생할까?
+    // 이유는 GreetAble에서 상속받은 Named의 필드 변수는 readonly로 필수적으로 class에서 name 속성을 반드시 포함을 해야한다.
+    // 다시 클래스에 관해서 상기시키자면 class는 청사진이다. interface는 abstract와는 달리 강행성이 없지만
+    // implements와 extends차이
+    // extends는 클래스에서 클래스로 상속을 줄 때 이고 implements는 인터페이스를 클래스로 명세서를 받아 올 수 있는 방법이다. 정리하자면
+    // extends는 클래스 또는 인터페이스 간의 상속 관계를 나타내며 상위 클래스나 인터페이스의 속성과 메서드를 상속받아 사용할 수 있다.
+    // implements는 클래스가 인터페이스를 구현하도록 강제하며 인터페이스에서 정의된 모든 속성과 메서드를 구현해야 한다.
     this.age = N;
   }
   greet(phrase: string): void {
