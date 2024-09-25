@@ -35,10 +35,10 @@ class Person implements GreetAble {
   }
 }
 
-// custom type function과 interface function의 차이
+// custom function type과 interface function의 차이
 // 함수 타입 커스텀 방식과 인터페이스에서 함수 정의는 모두 함수의 타입을 명시하는 방법이다. 이 두 방식은 서로 유사해 보이지만 사용 목적과 적절한 상황에 따라 선택해야 한다.
 
-//custom type function
+//custom function type
 //  타입 별칭(type)을 사용해서 함수를 정의하는 방식은 단순한 함수 시그니처를 정의할 때 주로 사용된다. 함수의 인자와 반환 타입을 정의하고 이를 타입으로 재사용할 수 있다.
 // * 적절한 사용 시기:
 //  단순한 함수의 시그니처를 정의하고 싶을 때 적합
