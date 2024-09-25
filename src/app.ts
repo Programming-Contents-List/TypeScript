@@ -15,7 +15,6 @@ class Department {
     // this.id = '2';  // readonly이기 때문에 error가 발생한다.
     this.employees.push(employee);
   }
-
   printEmployeeInformation() {
     console.log(this.employees.length);
     console.log(this.employees);
