@@ -14,7 +14,6 @@ class Department {
   addEmployee(employee: string) {
     this.employees.push(employee);
   }
-
   printEmployeeInformation() {
     console.log(this.employees.length);
     console.log(this.employees);
