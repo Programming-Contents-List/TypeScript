@@ -37,6 +37,21 @@ class ITDepartment extends Department {
     this.admins = admins;
   }
 }
+const accounting = new Department('1', 'Accounting');
+const ITaccounting = new ITDepartment('2', ['Max']);
+
+ITaccounting.addEmployee('Max');
+ITaccounting.addEmployee('Manu');
+
+// accounting.employees[2] = 'Anna';
+ITaccounting.describe();
+ITaccounting.printEmployeeInformation();
+
+const NewAccounting = new AccountingDepartment('d2', []);
+
+// console.log(NewAccounting.mostRecentReport);  //report가 추가되지 않아서 Error
+NewAccounting.setMostRecentReport = 'Year End Report';
+NewAccounting.addReport('Something went wrong...');
 
 class AccountingDepartment extends Department {
   private lastReport: string;
