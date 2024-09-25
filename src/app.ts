@@ -62,7 +62,6 @@ class AccountingDepartment extends Department {
     console.log(this.reports);
   }
 }
-
 const accounting = new Department('1', 'Accounting');
 const ITaccounting = new ITDepartment('2', ['Max']);
 
