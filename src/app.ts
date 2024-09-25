@@ -1,23 +1,26 @@
-interface Named {
-  readonly name: string;
-}
+// interface는 객체의 구조를 정의하는데 사용된다.(각 객체들의 Type 명세서)
+/* type 함수 커스텀 방식 */
+// type AddFn = (a: number, b: number) => number;
+
+// interface Named {
+//   readonly name: string;
+// }
+
+// let add: AddFn;
+
+// add = (n1: number, n2: number) => {
+//   return n1 + n2;
+// }
 
 interface GreetAble extends Named {
   greet(phrase: string): void;
 }
 
 class Person implements GreetAble {
-  name: string;  //주석 처리하면 error발생
+  name: string;
   age: number;
   constructor(n: string, N: number) {
-    this.name = n;  // error ts(2339): name이 Person에서 구현되지 않았다고 error
-    // 그렇다면 왜 name과 관련된 GreatAble을 상속 받고 있는데 에러가 발생할까?
-    // 이유는 GreetAble에서 상속받은 Named의 필드 변수는 readonly로 필수적으로 class에서 name 속성을 반드시 포함을 해야한다.
-    // 다시 클래스에 관해서 상기시키자면 class는 청사진이다. interface는 abstract와는 달리 강행성이 없지만
-    // implements와 extends차이
-    // extends는 클래스에서 클래스로 상속을 줄 때 이고 implements는 인터페이스를 클래스로 명세서를 받아 올 수 있는 방법이다. 정리하자면
-    // extends는 클래스 또는 인터페이스 간의 상속 관계를 나타내며 상위 클래스나 인터페이스의 속성과 메서드를 상속받아 사용할 수 있다.
-    // implements는 클래스가 인터페이스를 구현하도록 강제하며 인터페이스에서 정의된 모든 속성과 메서드를 구현해야 한다.
+    this.name = n;
     this.age = N;
   }
   greet(phrase: string): void {
