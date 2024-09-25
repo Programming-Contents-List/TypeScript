@@ -19,7 +19,6 @@ class Department {
 }
 
 const accounting = new Department('Accounting');
-
 accounting.addEmployee('Max');
 accounting.addEmployee('Manu');
 
