@@ -1,7 +1,9 @@
 {
+  // "include": ["src/**/*.ts"],  // src 폴더 내의 모든 .ts 파일을 포함
+  // "exclude": ["node_modules", "dist"],  // node_modules와 dist 폴더는 제외
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+    { "path": "./tsconfig.node.json" },
   ]
 }
