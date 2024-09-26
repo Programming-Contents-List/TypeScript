@@ -27,33 +27,38 @@
         tsc app.ts
     ```
   <dl>
-    <details>
+    <details open>
       <summary>Lecture List</summary>
         <dd>
-          <details>
+          <details open>
             <summary>Section2: TypeScript 기본& 기본 타입</summary>
-                <dd>(14) 숫자 문자열 및 불리언 작업하기: #</dd>
-                <dd>(15) 타입 할당 및 타입 추론하기: #</dd>
-                <dd>(16) 객체 형태: #</dd>
-                <dd>(18) 배열 타입: #</dd>
-                <dd>(19) 튜플 작업하기: #</dd>
-                <dd>(20) 열거형으로 작업하기: #</dd>
-                <dd>(21) Any 타입: #</dd>
-                <dd>(22) 조합 타입: #</dd>
-                <dd>(23) 리터럴 타입: #</dd>
-                <dd>(24) 타입 알리어스 / 사용자 정의 타입: #</dd>
-                <dd>(25) 타입 알리어스 및 객체 타입: #</dd>
-                <dd>(26) 함수 반환 타입 및 "무효": #</dd>
-                <dd>(27) 타입의 기능을 하는 함수: #</dd>
-                <dd>(28) 함수 타입 및 콜백: #</dd>
-                <dd>(29) 알 수 없는 타입: #</dd>
-                <dd>(30) 절대 타입: #</dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/18">(14) 숫자 문자열 및 불리언 작업하기</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/21">(15) 타입 할당 및 타입 추론하기</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/20">(16) 객체 형태</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/22">(18) 배열 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/23">(19) 튜플 작업하기</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/24">(20) 열거형으로 작업하기</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/25">(21) Any 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/27">(22) 조합 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/28">(23) 리터럴 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/29">(24) 타입 알리어스 / 사용자 정의 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/30">(26) 함수 반환 타입 및 "무효"</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/31">(27) 타입의 기능을 하는 함수</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/32">(28) 함수 타입 및 콜백</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/33">(29) 알 수 없는 타입</a></dd>
+                <dd><a href="https://github.com/Programming-Contents-List/TypeScript/pull/34">(30) 절대 타입</a></dd>
           </details>
         </dd>
         <dd>  
           <details>
             <summary>Section 3</summary>
                 <dd>-: #</dd>
+          </details>
+        </dd>
+      <dd>
+          <details open>
+            <summary>Section5: 클래스 & 인터페이스</summary>
+                <dd><a href="https://#">(59) 퍼스트 클래스 만들기</a></dd>
           </details>
         </dd>
         <dd>  
