@@ -1,3 +1,4 @@
+// 제네릭을 사용하지 않은 방식
 function merge(objA: object, objB: object) {
   return Object.assign(objA, objB);
 }
@@ -8,3 +9,5 @@ function merge(objA: object, objB: object) {
 const mergeObj = merge({ name: 'Max' }, { age: 30 }) as { name: string, age: number };
 
 mergeObj.name;
+
+//위의 방식을 사용하는 것은 매우 번거롭다. 따라서 제네릭을 사용해서 간소화 할 수 있다.
