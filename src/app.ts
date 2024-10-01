@@ -1,21 +1,83 @@
-let userInput: unknown;
+class Department {
+  // private id: string;
+  // private name: string;
+  private employees: string[] = [];
+  // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
+  constructor(private readonly id: string, public name: string) {
+    // this.id = id;
+    // this.name = n
+  }
+  describe(this: Department) {
+    console.log(`Department (${this.id}): ${this.name}`);
+  }
 
-let userName: string;
-userInput = 5;
-userInput = 'Max';
+  addEmployee(employee: string) {
+    // this.id = '2';  // readonly이기 때문에 error가 발생한다.
+    this.employees.push(employee);
+  }
 
-console.log(typeof userInput);
-
-if (typeof userInput === 'string') {
-  userName = userInput;
+  printEmployeeInformation() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
 }
 
-function generateError(message: string, code: number): never { //:never
-  throw { message: message, errorCode: code };
-} //generateError는 never타입을 반환한다. 이유는 throw 때문인데 절대적으로 값이 변하면 안되기 때문이다. 따라서 never타입은 다음과 같다.
-//never 타입은 어떠한 값도 반환하지 않는 함수의 반환 타입을 나타낸다. 이 타입은 함수가 정상적으로 완료되지 않고 항상 예외를 던지거나 무한 루프에 빠져 끝나지 않는 경우에 사용된다. 오해하지 말아야할 것은 literal type으로 확인을 하면 void로 선언이 되어있지만 throw를 사용하면 무조건으로 never가 반환된다. 따라서 암묵적으로 never를 반환은 하지만 never타입임을 코드에 명시해주는 것이 좋다.
+class ITDepartment extends Department {
+  admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, 'IT');
+    this.admins = admins;
+  }
+}
 
-const resultError = generateError('An error occurred!', 500);
-console.log('resultError: ', resultError);  //본래 일반적인 함수라면 undefined를 반환해야한다.
-//하지만 아무것도 반환되는 것이 없다. 이유는 generateError는 never 타입으로 반환이 되기 때문에 컴파일이 중도 정지가 되는 것이다.
-//참고로 throw는 try,catch를 사용해도 무시하지 않고 중도 정지가 된다.
+class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error('No report found.');
+  }
+
+  set setMostRecentReport(value: string) {
+    if (!value) {
+      throw new Error('Please pass in a valid value!')
+    }
+    this.addReport(value);
+    this.lastReport = value;  // 여기서 lastReport를 업데이트 그래야 lastReport가 비어있지 않기 때문에 정상적으로 동작을 한다.
+  }
+
+  constructor(id: string, private reports: string[]) {
+    super(id, 'Account');
+    //strictPropertyInitialization 활성화로 초기화 해줘야 함.
+    this.lastReport = reports[0] || ""; // 초기값을 할당 (reports가 비어있으면 빈 문자열)
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+const accounting = new Department('1', 'Accounting');
+const ITaccounting = new ITDepartment('2', ['Max']);
+
+ITaccounting.addEmployee('Max');
+ITaccounting.addEmployee('Manu');
+
+// accounting.employees[2] = 'Anna';
+ITaccounting.describe();
+ITaccounting.printEmployeeInformation();
+
+const NewAccounting = new AccountingDepartment('d2', []);
+
+// console.log(NewAccounting.mostRecentReport);  //report가 추가되지 않아서 Error
+NewAccounting.setMostRecentReport = 'Year End Report';
+NewAccounting.addReport('Something went wrong...');
+
+console.log(NewAccounting.mostRecentReport);  //report가 있어서 문제없이 출력
+
+NewAccounting.printReports();
