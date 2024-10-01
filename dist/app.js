@@ -11,5 +11,6 @@ function countAndDescribe(element) {
         descriptionText = 'Got ' + element.length + ' elements.';
     }
     return [element, descriptionText];
+    // return ['Max', 'Tom']; //error 발생 : 타입을 명시했기 때문에 그렇다.
 }
 console.log(countAndDescribe('Hi, there!'));
