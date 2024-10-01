@@ -1,83 +1,15 @@
-class Department {
-  // private id: string;
-  // private name: string;
-  private employees: string[] = [];
-  // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
-  constructor(private readonly id: string, public name: string) {
-    // this.id = id;
-    // this.name = n
-  }
-  describe(this: Department) {
-    console.log(`Department (${this.id}): ${this.name}`);
-  }
-
-  addEmployee(employee: string) {
-    // this.id = '2';  // readonly이기 때문에 error가 발생한다.
-    this.employees.push(employee);
-  }
-
-  printEmployeeInformation() {
-    console.log(this.employees.length);
-    console.log(this.employees);
-  }
+// 제네릭은 interface와 달리 매개변수처럼 정해진 타입이 없을 때 사용하는 방법이다.
+function merge<T, U>(objA: T, objB: U): T & U {
+  // 일반적으론 `T&U`를 작성하지 않아도 괜찮지만 TS의 엄격한 문법 준수를 사용해서 교차 타입임을 직접 명시해야한다.
+  return Object.assign({}, objA, objB);
+  // `{}`를 넣는 이유 : Object.assign을 사용할 때 첫 번째 인수로 {} 빈 객체를 넣는 이유는 기존 객체를 변경하지 않고 새로운 객체를 생성하여 반환하기 위해서이다. 이는 원본 객체를 보호하고 불변성(immutability)을 유지하기 위해 사용하는 일반적인 방법이다.
 }
 
-class ITDepartment extends Department {
-  admins: string[];
-  constructor(id: string, admins: string[]) {
-    super(id, 'IT');
-    this.admins = admins;
-  }
-}
+const mergeObj = merge({ name: 'Max', hobbies: ['Sports'] }, { age: 30 });
+// 이렇게 제네릭을 사용해서 ts가 스스로 타입 추론을 할 수 있다. 하지만 아래와 같이 제네릭으로 직접적으로 타입을 명시할 수 있다.
+const mergeObjExample = merge<{ name: string, hobbies: string[] }, { age: number }>({ name: 'Max', hobbies: ['Sports'] }, { age: 30 });
+// 그렇다면 왜 위의 방식으로 직접 명시하지 않아도 되는 것인가?
+// 이유는 제네릭을 사용하는 함수의 입력값을 기반으로 제네릭 타입을 자동으로 결정되는 타입 추론때문인 것이다. 즉, 타입스크립트가 타입을 지정하는 js의 확장형 코드라지만 `타입추론`을 모르고 사용한다면 타입스크립트를 제대로 사용하지 않는 것이다.
+const mergeObj2 = merge({ name: 'Max' }, { age: 30 });
 
-class AccountingDepartment extends Department {
-  private lastReport: string;
-
-  get mostRecentReport() {
-    if (this.lastReport) {
-      return this.lastReport;
-    }
-    throw new Error('No report found.');
-  }
-
-  set setMostRecentReport(value: string) {
-    if (!value) {
-      throw new Error('Please pass in a valid value!')
-    }
-    this.addReport(value);
-    this.lastReport = value;  // 여기서 lastReport를 업데이트 그래야 lastReport가 비어있지 않기 때문에 정상적으로 동작을 한다.
-  }
-
-  constructor(id: string, private reports: string[]) {
-    super(id, 'Account');
-    //strictPropertyInitialization 활성화로 초기화 해줘야 함.
-    this.lastReport = reports[0] || ""; // 초기값을 할당 (reports가 비어있으면 빈 문자열)
-  }
-
-  addReport(text: string) {
-    this.reports.push(text);
-  }
-
-  printReports() {
-    console.log(this.reports);
-  }
-}
-const accounting = new Department('1', 'Accounting');
-const ITaccounting = new ITDepartment('2', ['Max']);
-
-ITaccounting.addEmployee('Max');
-ITaccounting.addEmployee('Manu');
-
-// accounting.employees[2] = 'Anna';
-ITaccounting.describe();
-ITaccounting.printEmployeeInformation();
-
-const NewAccounting = new AccountingDepartment('d2', []);
-
-// console.log(NewAccounting.mostRecentReport);  //report가 추가되지 않아서 Error
-NewAccounting.setMostRecentReport = 'Year End Report';
-NewAccounting.addReport('Something went wrong...');
-
-console.log(NewAccounting.mostRecentReport);  //report가 있어서 문제없이 출력
-
-NewAccounting.printReports();
+console.log(mergeObj.name);
