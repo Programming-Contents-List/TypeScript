@@ -1,31 +1,17 @@
 "use strict";
-var Department = /** @class */ (function () {
-    // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
-    function Department(id, name) {
-        this.id = id;
-        this.name = name;
-        // private id: string;
-        // private name: string;
-        this.employees = [];
-        // this.id = id;
-        // this.name = n
-    }
-    Department.prototype.describe = function () {
-        console.log("Department (".concat(this.id, "): ").concat(this.name));
-    };
-    Department.prototype.addEmployee = function (employee) {
-        // this.id = '2';  // readonly이기 때문에 error가 발생한다.
-        this.employees.push(employee);
-    };
-    Department.prototype.printEmployeeInformation = function () {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    };
-    return Department;
-}());
-var accounting = new Department('1', 'Accounting');
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
-// accounting.employees[2] = 'Anna';
-accounting.describe();
-accounting.printEmployeeInformation();
+// const names = [];
+// 위의 방식과 아래의 방식은 갇다. 단, 위의 방식은 any[]이지만 아래는 제네릭을 통해서 sting이라고 명시 해주었다.
+// Array 제네릭 클래스
+const names = [];
+// 이런 Promise도 타입으로 지정을 해주고 제네릭을 사용할 수 있다.
+// 여기서는 Promise로 내장되어 있는 제네릭 클래스를 사용한 것이다.
+//즉, <string>은 반환 타입을 명시한 것이다. 
+const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+        res('This is done!');
+    }, 2000);
+});
+promise.then(data => {
+    data.split(' ');
+});
+// 이제 앞으로는 일반적인 변수, 함수를 제네릭을 지정하는 방식을 살펴볼 것이다.
