@@ -1,83 +1,34 @@
-class Department {
-  // private id: string;
-  // private name: string;
-  private employees: string[] = [];
-  // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
-  constructor(private readonly id: string, public name: string) {
-    // this.id = id;
-    // this.name = n
-  }
-  describe(this: Department) {
-    console.log(`Department (${this.id}): ${this.name}`);
+class DataStorage<T extends string | number | boolean> {
+  private data: T[] = [];
+  addItem(item: T) {
+    this.data.push(item);
   }
 
-  addEmployee(employee: string) {
-    // this.id = '2';  // readonly이기 때문에 error가 발생한다.
-    this.employees.push(employee);
-  }
-
-  printEmployeeInformation() {
-    console.log(this.employees.length);
-    console.log(this.employees);
-  }
-}
-
-class ITDepartment extends Department {
-  admins: string[];
-  constructor(id: string, admins: string[]) {
-    super(id, 'IT');
-    this.admins = admins;
-  }
-}
-
-class AccountingDepartment extends Department {
-  private lastReport: string;
-
-  get mostRecentReport() {
-    if (this.lastReport) {
-      return this.lastReport;
+  removeItem(item: T) {
+    if (this.data.indexOf(item) === -1) {
+      return;
     }
-    throw new Error('No report found.');
+    this.data.splice(this.data.indexOf(item), 1);
   }
 
-  set setMostRecentReport(value: string) {
-    if (!value) {
-      throw new Error('Please pass in a valid value!')
-    }
-    this.addReport(value);
-    this.lastReport = value;  // 여기서 lastReport를 업데이트 그래야 lastReport가 비어있지 않기 때문에 정상적으로 동작을 한다.
-  }
-
-  constructor(id: string, private reports: string[]) {
-    super(id, 'Account');
-    //strictPropertyInitialization 활성화로 초기화 해줘야 함.
-    this.lastReport = reports[0] || ""; // 초기값을 할당 (reports가 비어있으면 빈 문자열)
-  }
-
-  addReport(text: string) {
-    this.reports.push(text);
-  }
-
-  printReports() {
-    console.log(this.reports);
+  getItems() {
+    return [...this.data];
   }
 }
-const accounting = new Department('1', 'Accounting');
-const ITaccounting = new ITDepartment('2', ['Max']);
 
-ITaccounting.addEmployee('Max');
-ITaccounting.addEmployee('Manu');
+const textStorage = new DataStorage<string>();
+textStorage.addItem('Max');
+textStorage.addItem('Manu');
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
 
-// accounting.employees[2] = 'Anna';
-ITaccounting.describe();
-ITaccounting.printEmployeeInformation();
+const numberStorage = new DataStorage<number>();
 
-const NewAccounting = new AccountingDepartment('d2', []);
-
-// console.log(NewAccounting.mostRecentReport);  //report가 추가되지 않아서 Error
-NewAccounting.setMostRecentReport = 'Year End Report';
-NewAccounting.addReport('Something went wrong...');
-
-console.log(NewAccounting.mostRecentReport);  //report가 있어서 문제없이 출력
-
-NewAccounting.printReports();
+//객체로 조직화 된 것보다 string이나 다른 자료형을 사용하는 것이 보다 나은 선택이다. 따라 Generics의 타입선언에 object를 제외
+// const objStorage = new DataStorage<object>();
+// const maxObj = { name: 'Max' };
+// objStorage.addItem(maxObj);
+// objStorage.addItem({ name: 'Manu' });
+// objStorage.removeItem(maxObj); //Max를 지웠지만 console.log로 확인하면 Max가 남아 있다.
+// //이유는 removeItem의 로직이 단순하게 1번째를 삭제하게 되어 있다.
+// console.log(objStorage.getItems());

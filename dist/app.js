@@ -1,31 +1,32 @@
 "use strict";
-var Department = /** @class */ (function () {
-    // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
-    function Department(id, name) {
-        this.id = id;
-        this.name = name;
-        // private id: string;
-        // private name: string;
-        this.employees = [];
-        // this.id = id;
-        // this.name = n
+class DataStorage {
+    constructor() {
+        this.data = [];
     }
-    Department.prototype.describe = function () {
-        console.log("Department (".concat(this.id, "): ").concat(this.name));
-    };
-    Department.prototype.addEmployee = function (employee) {
-        // this.id = '2';  // readonly이기 때문에 error가 발생한다.
-        this.employees.push(employee);
-    };
-    Department.prototype.printEmployeeInformation = function () {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    };
-    return Department;
-}());
-var accounting = new Department('1', 'Accounting');
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
-// accounting.employees[2] = 'Anna';
-accounting.describe();
-accounting.printEmployeeInformation();
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem('Max');
+textStorage.addItem('Manu');
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
+const numberStorage = new DataStorage();
+//객체로 조직화 된 것보다 string이나 다른 자료형을 사용하는 것이 보다 나은 선택이다. 따라 Generics의 타입선언에 object를 제외
+// const objStorage = new DataStorage<object>();
+// const maxObj = { name: 'Max' };
+// objStorage.addItem(maxObj);
+// objStorage.addItem({ name: 'Manu' });
+// objStorage.removeItem(maxObj); //Max를 지웠지만 console.log로 확인하면 Max가 남아 있다.
+// //이유는 removeItem의 로직이 단순하게 1번째를 삭제하게 되어 있다.
+// console.log(objStorage.getItems());
