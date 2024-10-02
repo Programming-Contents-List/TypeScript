@@ -1,6 +1,6 @@
 // 제네릭 유틸리티 타입
 
-// Normal 하게 사용하는 방식은 이러하다. 하지만 이런 방식은 여러 불편함이 존재한다.
+// Partial(파셜) 타입
 interface CourseGoal {
   title: string;
   description: string;
@@ -10,11 +10,16 @@ interface CourseGoal {
 function createCourseGoal(
   title: string,
   description: string,
-  completeUntil: Date,
+  date: Date,
 ): CourseGoal {
-  return {
-    title: title, description: description, completeUntil: completeUntil
+  let courseGoal: Partial<CourseGoal> = {
   };
+  courseGoal.title = title;
+  courseGoal.description = description;
+  courseGoal.completeUntil = date;
+  return courseGoal as CourseGoal;
 }
 
-// Partial(파셜) 타입
+const names: Readonly<string[]> = ['Max', 'Anna'];  //Readonly 타입으로 제네릭으로 정의
+// names.push('Manu'); //readonly 속성으로 push 하거나 pop이 불가능 하다.
+// names.pop(); //readonly 속성으로 push 하거나 pop이 불가능 하다.
