@@ -1,31 +1,25 @@
 "use strict";
-var Department = /** @class */ (function () {
-    // readonly는 프로퍼티를 초기화한 후 수정할 수 없다. 즉, 한번 할당 되면 변경되면 안되는 고유 번호들을 설정할 때 readonly를 사용한다.
-    function Department(id, name) {
-        this.id = id;
-        this.name = name;
-        // private id: string;
-        // private name: string;
-        this.employees = [];
-        // this.id = id;
-        // this.name = n
+// function merge<T extends object, U extends object>(objA: T, objB: U): T & U {
+//   return Object.assign({}, objA, objB);
+// }
+function countAndDescribe(element) {
+    let descriptionText = "Got no Value";
+    if (element.length === 1) {
+        descriptionText = "Got 1 element";
     }
-    Department.prototype.describe = function () {
-        console.log("Department (".concat(this.id, "): ").concat(this.name));
-    };
-    Department.prototype.addEmployee = function (employee) {
-        // this.id = '2';  // readonly이기 때문에 error가 발생한다.
-        this.employees.push(employee);
-    };
-    Department.prototype.printEmployeeInformation = function () {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    };
-    return Department;
-}());
-var accounting = new Department('1', 'Accounting');
-accounting.addEmployee('Max');
-accounting.addEmployee('Manu');
-// accounting.employees[2] = 'Anna';
-accounting.describe();
-accounting.printEmployeeInformation();
+    else if (element.length > 1) {
+        descriptionText = 'Got ' + element.length + ' elements.';
+    }
+    return [element, descriptionText];
+    // return ['Max', 'Tom']; //error 발생 : 타입을 명시했기 때문에 그렇다.
+}
+console.log(countAndDescribe('Hi, there!'));
+//객체 key, value에 합당한 ts Generics
+function extractAndConvert(obj, key) {
+    return 'Value: ' + obj[key];
+}
+//  T : { name: 'Max' }, U : 'name'
+const value = extractAndConvert({ name: 'Max', age: 30 }, 'age'); //age를 추가한 에시
+console.log(value);
+//  위의 설명이 다소 복잡하다. 우선 U는 객체의 key, value 형태로 구성되어 있다. 그리고 U는 T에서 key에 해당되는 값을 상속받아 key타입을 지니고 있다. 즉, name 부분을 반환하는 형태이다. return 값의 반환을 보면 object의 해당 key값을 도출하려는 의도이다. 따라서, console.log(value)의 값은 Max가 된다.
+// 이를 조금더 변형해보자면 object에 age를 추가하면 key: U타입에 age를 입력할 수 있게 된다.
