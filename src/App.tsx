@@ -2,7 +2,8 @@ import { useEffect } from "react";
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
-import ButtonComponents from "./shared/components/button.components";
+// import ButtonComponents from "./shared/components/button.components";  //원문 파일
+import ButtonComponents from "./shared/components/Button.components.test";  //Test 파일로 대체
 import { validateData } from "./test"; // test.ts 파일을 
 
 const Button = ButtonComponents;
