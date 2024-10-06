@@ -12,6 +12,8 @@ const buttonPropsSchema = Z.object({
 // 2. TypeScript 타입으로 추출
 type ButtonProps = Z.infer<typeof buttonPropsSchema>;
 
+// 3. 컴포넌트에 타입 설정: FC Generics로 적용하지 않고 해당 Props에 Type을 적용
+// FC 사용방법은 PR Link 참고
 const ButtonComponents = ({EnterColor, LeaveColor}:ButtonProps) => {
   const [isHover, setHover] = useState(false);
 
