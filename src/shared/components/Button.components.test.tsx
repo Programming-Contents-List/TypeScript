@@ -29,7 +29,12 @@ const ButtonComponents = (props:ButtonProps) => {
 // 4-1. 직접적으로 Props 변수를 생성
   const { EnterColor, LeaveColor } = props;
 // 4-2. 런타임 Props 검증
-  buttonPropsSchema.parse(props);
+  try {
+    buttonPropsSchema.parse(props);
+    console.log("Props validation successful"); // 유효성 검증이 성공하면 이 메시지가 출력됩니다.
+  } catch (err) {
+    console.error("Props validation failed", err); // 검증 실패 시 오류 메시지 출력
+  }
 
   return (
     <div>
