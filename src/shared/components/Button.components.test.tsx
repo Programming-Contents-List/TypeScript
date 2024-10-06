@@ -26,9 +26,10 @@ type ButtonProps = z.infer<
 const ButtonComponents = (props:ButtonProps) => {
   const [isHover, setHover] = useState(false);
 
-// 4-1. 직접적으로 Props 변수를 생성
+  // 4-1. 직접적으로 Props 변수를 생성
   const { EnterColor, LeaveColor } = props;
-// 4-2. 런타임 Props 검증
+
+  // 4-2. 런타임 Props 검증
   try {
     buttonPropsSchema.parse(props);
     console.log("Props validation successful"); // 유효성 검증이 성공하면 이 메시지가 출력됩니다.
