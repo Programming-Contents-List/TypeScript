@@ -1,6 +1,18 @@
 import { useState } from "react";
+import Z from "zod";
 
-const ButtonComponents = () => {
+//interface
+//Zod about props
+// 1. zod로 props 스키마 정의
+const buttonPropsSchema = Z.object({
+  EnterColor: Z.string(),
+  LeaveColor: Z.string(),
+})
+
+// 2. TypeScript 타입으로 추출
+type ButtonProps = Z.infer<typeof buttonPropsSchema>;
+
+const ButtonComponents = ({EnterColor, LeaveColor}:ButtonProps) => {
   const [isHover, setHover] = useState(false);
 
   return (
@@ -13,7 +25,7 @@ const ButtonComponents = () => {
           alignItems: 'center',
           width: '100px',
           height: '50px',
-          background: isHover ? '#3d3da1' : '#5353ea',
+          background: isHover ? EnterColor : LeaveColor,
           color: 'white',
           borderRadius: '7px',
           cursor: 'pointer',

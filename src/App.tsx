@@ -9,7 +9,7 @@ const Button = ButtonComponents;
 
 function App() {
   // const [count, setCount] = useState(0);
-
+  // '#3d3da1' : '#5353ea'
   useEffect(() => {
     // 컴포넌트가 마운트될 때 test.ts의 validateData 함수 실행
     validateData();
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <div style={{marginBottom: '10px'}}>test</div>
-      <Button/>
+      <Button EnterColor={'#3d3da1'} LeaveColor={'#5353ea'}/>
     </div>
   );
 }
